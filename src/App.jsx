@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Box, OrbitControls } from "@react-three/drei";
 
-const Scene = () => {
+const World = () => {
   const boxRef = useRef();
   useFrame((state, delta) => {
     boxRef.current.rotation.y += 0.02;
@@ -22,7 +22,7 @@ const App = () => {
   return (
     <Canvas camera={{ fov: 70, position: [0, 0, 3] }}>
       <OrbitControls />
-      <Scene />
+      <World />
     </Canvas>
   );
 };
