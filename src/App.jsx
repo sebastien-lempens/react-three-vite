@@ -20,7 +20,7 @@ const World = () => {
 
 const App = () => {
   return (
-    <Canvas camera={{ fov: 70, position: [0, 0, 3] }}>
+    <Canvas>
       <OrbitControls />
       <World />
     </Canvas>
