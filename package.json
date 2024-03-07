@@ -1,16 +1,14 @@
 {
   "name": "sl-react-three-vite",
   "version": "1.0.0",
-  "description": "A simple React Three Fiber + Vite starter with an import-ready CodeSandbox config.",
+  "description": "A simple React Three Fiber + Vite starter.",
   "keywords": [
     "r3f",
     "react",
     "three",
     "vite",
     "starter",
-    "react three fiber",
-    "sandbox",
-    "codesandbox"
+    "react three fiber"
   ],
   "repository": "github:sebastien-lempens/react-three-vite",
   "license": "MIT",
@@ -28,7 +26,6 @@
   },
   "scripts": {
     "dev": "vite --host",
-    "sandbox": "APP_ENV=sandbox vite",
     "build": "vite build",
     "preview": "vite preview"
   },
