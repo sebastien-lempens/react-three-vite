@@ -3,7 +3,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { Box, OrbitControls } from "@react-three/drei";
 import fragmentShader from "./shaders/fragment.glsl";
 import vertexShader from "./shaders/vertex.glsl";
-import { Uniform } from "three";
+import { MathUtils, Uniform } from "three";
 import { Leva, useControls, folder } from "leva";
 const World = () => {
   const boxRef = useRef();
@@ -26,7 +26,13 @@ const World = () => {
   return (
     <>
       <Box ref={boxRef} args={[1, 1, 1]} position={[...position]} rotation={[0.5, 0, 0]}>
-        <shaderMaterial transparent={true} uniforms={uniforms} fragmentShader={fragmentShader} vertexShader={vertexShader} />
+        <shaderMaterial
+          key={MathUtils.generateUUID()}
+          transparent={true}
+          uniforms={uniforms}
+          fragmentShader={fragmentShader}
+          vertexShader={vertexShader}
+        />
       </Box>
       <ambientLight />
     </>
