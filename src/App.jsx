@@ -13,7 +13,6 @@ const World = () => {
       step: 0.1,
     },
   });
-  console.log(position);
   const [uniforms] = useState(() => {
     return {
       uTime: new Uniform(0),
