@@ -4,9 +4,16 @@ import { Box, OrbitControls } from "@react-three/drei";
 import fragmentShader from "./shaders/fragment.glsl";
 import vertexShader from "./shaders/vertex.glsl";
 import { Uniform } from "three";
-
+import { Leva, useControls, folder } from "leva";
 const World = () => {
   const boxRef = useRef();
+  const { position } = useControls({
+    position: {
+      value: [0, 0, 0],
+      step: 0.1,
+    },
+  });
+  console.log(position);
   const [uniforms] = useState(() => {
     return {
       uTime: new Uniform(0),
@@ -18,7 +25,7 @@ const World = () => {
 
   return (
     <>
-      <Box ref={boxRef} args={[1, 1, 1]} rotation={[0.5, 0, 0]}>
+      <Box ref={boxRef} args={[1, 1, 1]} position={[...position]} rotation={[0.5, 0, 0]}>
         <shaderMaterial transparent={true} uniforms={uniforms} fragmentShader={fragmentShader} vertexShader={vertexShader} />
       </Box>
       <ambientLight />
@@ -28,10 +35,13 @@ const World = () => {
 
 const App = () => {
   return (
-    <Canvas>
-      <OrbitControls />
-      <World />
-    </Canvas>
+    <>
+      <Canvas>
+        <OrbitControls />
+        <World />
+      </Canvas>
+      <Leva flat oneLineLabels collapsed={false} />
+    </>
   );
 };
 
